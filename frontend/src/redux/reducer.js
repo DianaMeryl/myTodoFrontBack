@@ -12,7 +12,9 @@ import {
     ADD_TODO_SUCCESS,
     ADD_TODO_FAILURE,
     FETCH_TODOS,
-    UPDATE_TODOS
+    UPDATE_TODOS,
+    SET_CURRENT_PAGE, 
+    SET_LIMIT_TODOS_ONPAGE
 } from './actionTypes';
 
 const initialState = { 
@@ -23,11 +25,12 @@ const initialState = {
     activeUserId: '',
     isLoggedIn: false, 
     users: [],
-    error: null
+    error: null,
+    currentPage: 5,
+    limitTodos: 3,
 };
 
 const todoReducer = (state = initialState, action) => {
-console.log(action)
     switch (action.type) {
         case FETCH_TODOS:
             return { 
@@ -132,7 +135,17 @@ console.log(action)
                     ...state,
                     currentUser: null,
                     isLoggedIn: false,
-                };
+        };
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.payload
+            };
+        case SET_LIMIT_TODOS_ONPAGE:
+            return {
+                ...state,
+                limitTodos: action.payload
+        };
 
         default:
         return state;

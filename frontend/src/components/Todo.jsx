@@ -5,7 +5,7 @@ import FilterButtons from './FilterButtons';
 import { BsSearch, BsPlus } from 'react-icons/bs';
 import { addTodoSuccess, updateSearchTerm, addTodoFailure, fetchTodos } from '../redux/actions';
 import axios from 'axios';
-
+import PaginationComponent from './PaginationComponent';
 
 //31 05 2024
 
@@ -102,6 +102,7 @@ const Todo = ({ userId }) => {
             </div>
 
             <TodoList />
+            <PaginationComponent />
         </div>
     );
 };

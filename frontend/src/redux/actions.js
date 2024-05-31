@@ -11,7 +11,9 @@ import {
     SET_CURRENT_USER, 
     LOGOUT_USER, 
     REGISTER_USER_SUCCESS,
-    FETCH_TODOS
+    FETCH_TODOS,
+    SET_CURRENT_PAGE,
+    SET_LIMIT_TODOS_ONPAGE
 } from './actionTypes';
 
 export const fetchTodos = (todos) => ({
@@ -85,4 +87,18 @@ export const registerUserSuccess = (userData) => {
         type: REGISTER_USER_SUCCESS,
         payload: userData
     }
+};
+
+export const setCurrentPage = (page) => { 
+    return {
+        type: SET_CURRENT_PAGE,
+        payload: page,
+    };
+};
+
+export const setLimitTodosOnPage = (limit) => { 
+    return {
+        type: SET_LIMIT_TODOS_ONPAGE,
+        payload: limit,
+    };
 };
