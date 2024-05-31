@@ -11,7 +11,8 @@ import {
     REGISTER_USER_SUCCESS,
     ADD_TODO_SUCCESS,
     ADD_TODO_FAILURE,
-    FETCH_TODOS
+    FETCH_TODOS,
+    UPDATE_TODOS
 } from './actionTypes';
 
 const initialState = { 
@@ -26,9 +27,14 @@ const initialState = {
 };
 
 const todoReducer = (state = initialState, action) => {
-
+console.log(action)
     switch (action.type) {
         case FETCH_TODOS:
+            return { 
+                ...state, 
+                todos: action.payload 
+        };
+        case UPDATE_TODOS:
             return { 
                 ...state, 
                 todos: action.payload 
@@ -36,7 +42,7 @@ const todoReducer = (state = initialState, action) => {
         case ADD_TODO_SUCCESS:
             return {
                 ...state,
-                todos: [...state.todos, { text: action.payload.text, completed: false }],
+                todos: [...state.todos, { ...action.payload, completed: false }],
                 filter: state.filter,
                 searchTerm: state.searchTerm,
         };

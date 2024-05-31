@@ -15,4 +15,7 @@ router.get('/users', authMiddleware, userController.getUsers);
 router.post('/addtodo', todoController.addingTodoItem);
 router.get('/alltodos/:id', todoController.findAllTodoItems);
 router.delete('/remove/:id', todoController.removeTodoItem);
+router.put('/todos/:id', todoController.updateOneTodo);
+
+
 module.exports = router;

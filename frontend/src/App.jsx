@@ -6,8 +6,7 @@ import LoginForm from './components/LoginForm';
 import Layout from './layout/Layout';
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import TodoList from './components/TodoList';
-
+import Update from './components/Update';
 
 const LazyRegistration = React.lazy(() => import('./components/RegistrationForm'));
 
@@ -23,6 +22,7 @@ function App() {
             <Route  path="/home" element={ <Suspense fallback={<div>Loading...</div>}><LazyRegistration /></Suspense>} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/todo" element={<Todo userId={currentUserId}/>} />
+            <Route path='/edit/:id' element={<Update />} />
         </Route>
       </Routes>
     </BrowserRouter>

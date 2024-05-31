@@ -57,9 +57,16 @@ async function getAllTodos(userId){
     }
 }
 
+async function updateTodo(id, todo) {
+
+    await Todo.update(todo, { where: { id: id } });
+
+}
+
 module.exports = {
     saveTodo,
     removeTodo,
     findTodo,
-    getAllTodos
+    getAllTodos, 
+    updateTodo
 }

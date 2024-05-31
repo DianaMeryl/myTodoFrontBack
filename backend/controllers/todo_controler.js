@@ -56,9 +56,26 @@ async function findAllTodoItems(req, res, next) {
 }
 
 
+async function updateOneTodo(req, res) {
+    const { id } = req.params;
+    const todoText  = req.body;
+
+    try {
+        const newTodo = await TodoService.updateTodo(id, todoText );
+
+        res.status(200).json(newTodo);
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({ error: 'Не вдалося оновити нотатку' });
+    }
+};
+
 module.exports = {
     addingTodoItem,
     removeTodoItem,
     findAllTodoItems,
-    findTodoItem
+    findTodoItem,
+    updateOneTodo
 };

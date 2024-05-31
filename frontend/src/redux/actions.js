@@ -1,7 +1,7 @@
 import {
     ADD_TODO_SUCCESS,
+    UPDATE_TODOS,
     ADD_TODO_FAILURE,
-    TOGGLE_TODO,
     REMOVE_TODO,
     MARK_COMPLETED,
     MARK_INCOMPLETE,
@@ -19,19 +19,23 @@ export const fetchTodos = (todos) => ({
     payload: todos
 });
 
-export const addTodoSuccess = (todo) => ({
-    type: ADD_TODO_SUCCESS,
-    payload: todo
-});
+export const updateTodos = (todos) => {
+    return {
+        type: UPDATE_TODOS,
+        payload: todos
+    }
+}
+
+export const addTodoSuccess = (todo) => {
+    return {
+        type: ADD_TODO_SUCCESS,
+        payload: todo,
+    };
+};
 
 export const addTodoFailure = (error) => ({
     type: ADD_TODO_FAILURE,
     payload: error
-});
-
-export const toggleTodo = (id) => ({
-type: TOGGLE_TODO,
-payload:  { id } ,
 });
 
 export const removeTodo = (id) => ({
