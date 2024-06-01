@@ -15,7 +15,7 @@ const TodoList = () => {
 
 
 return (
-        <ul>
+        <ul className="mt-10">
             <li className="my-2 text-xl italic">All Your Notes Here...</li>
             {todosToDisplay.map((todo, index) => (
                 <TodoItem key={todo.id} todo={todo} index={index} />

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { registerUserSuccess } from '../redux/actions';
 import { useDispatch } from 'react-redux';
+
 // import selectUsersMemoized from '../redux/selectors';
 
 export default function RegistrationForm() {
@@ -74,19 +75,24 @@ const addData = (e) => {
         registerUser(name, email, password);
         history("/todo");
     }
-}
+};
 
 return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex">
+    <div className="w-1/2 flex items-center justify-center bg-blue-200 p-4">
+        <img src="src/assets/registration.jpg" alt="Опис зображення" className="max-w-full max-h-full  shadow-2xl" />
+    </div>
+    <div className=" w-1/2  p-4 flex items-center justify-center min-h-screen bg-blue-200 ">
         <div className="w-full max-w-md">
-            <h3 className="text-center mb-5 text-2xl font-bold">Sign Up</h3>
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4">
+            <h3 className="text-center mb-5 text-5xl text-green-600 font-bold">Sign Up</h3>
+            <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 space-y-4 bg-opacity-50">
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                        Enter your name
+                    <label className="block text-blue-500 text-2xl italic font-bold mb-2" htmlFor="name">
+                        Name
                     </label>
                     <input 
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        className="h-16 shadow appearance-none border rounded w-full py-2 px-3 text-xl text-blue-800 font-bold leading-tight focus:outline-none focus:shadow-outline" 
+                        placeholder="Enter your name"
                         type="text" 
                         onChange={getdata} 
                         name="name" 
@@ -94,11 +100,12 @@ return (
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                        Enter your email
+                    <label className="block text-blue-500 text-2xl italic font-bold mb-2" htmlFor="email">
+                        Email
                     </label>
                     <input 
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        className="h-16 shadow appearance-none border rounded w-full py-2 px-3 text-xl text-blue-800 font-bold leading-tight focus:outline-none focus:shadow-outline" 
+                        placeholder="Enter your email"
                         type="email" 
                         onChange={getdata} 
                         name="email" 
@@ -106,33 +113,34 @@ return (
                     />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                        Enter your password
+                    <label className="block text-blue-500 text-2xl italic font-bold mb-2" htmlFor="password">
+                        Password
                     </label>
                     <input 
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        className="h-16 shadow appearance-none border rounded w-full py-2 px-3 text-xl text-blue-800 font-bold leading-tight focus:outline-none focus:shadow-outline" 
+                        placeholder="Enter your password"
                         type="password" 
                         onChange={getdata} 
                         name="password"  
                         required
                     />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-center">
                     <button 
                         onClick={addData} 
                         type="submit" 
-                        className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    >
+                        className="bg-green-500 h-16 hover:bg-indigo-600 text-white text-2xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Submit
                     </button>
                 </div>
             </form>
-            <p className="mt-1 text-center">Already Have an Account? 
+            <p className="mt-1 text-center text-2xl italic">Already Have an Account? 
                 <span>
                     <NavLink to="/login" className="text-indigo-500 hover:underline"> Sign In</NavLink>
                 </span>
             </p>
         </div>
+    </div>
     </div>
 );
 }

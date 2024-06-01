@@ -26,32 +26,32 @@ const removeTodoDB = async () => {
 };
 
 return (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-4 font-roboto text-2xl ">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-4 font-roboto text-3xl font-bold h-24 ">
         <div className="flex items-center">
             <span className="mr-4 text-gray-500">{index + 1}.</span>
-            <span className={`mr-4 ${todo.completed ? 'line-through text-gray-500' : ''}`}>{todo.todoText}</span>
+            <span className={`mr-4 ${todo.completed ? 'line-through-color text-gray-300' : ''}`}>{todo.todoText}</span>
         </div>
         <div className="flex space-x-2">
             <Link
                 to={`/edit/${todo.id}`}
-                className="flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded text-sm">
+                className="flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white  text-3xl font-bold py-3 px-4 rounded">
                 <FaEdit />
             </Link>
             <button
-                className="flex items-center justify-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded text-sm"
+                className="flex items-center justify-center bg-red-500 hover:bg-red-700 text-white text-2xl font-bold py-2 px-3 rounded"
                 onClick={removeTodoDB}>
                 <FaTrash />
             </button>
             {!todo.completed && (
             <button
-                className="flex items-center justify-center  bg-yellow-500  hover:bg-green-700 text-white font-bold py-2 px-3 rounded text-sm"
+                className="flex items-center justify-center  bg-yellow-500  hover:bg-green-700 text-white text-3xl font-bold py-2 px-3 rounded"
                 onClick={() => dispatch(markCompleted(todo.id))}>
                 <BiDotsHorizontal  /> 
             </button>
             )}
             {todo.completed && (
             <button
-                className="flex items-center justify-center bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded text-sm"
+                className="flex items-center justify-center bg-green-500 hover:bg-yellow-700 text-white text-3xl font-bold py-2 px-3 rounded"
                 onClick={() => dispatch(markIncomplete(todo.id))}>
                 <FaCheck />
             </button>

@@ -7,7 +7,8 @@ import { addTodoSuccess, updateSearchTerm, addTodoFailure, fetchTodos } from '..
 import axios from 'axios';
 import PaginationComponent from './PaginationComponent';
 
-//31 05 2024
+
+//01 06 2024
 
 const Todo = ({ userId }) => {
     const dispatch = useDispatch();
@@ -66,11 +67,15 @@ const Todo = ({ userId }) => {
     };
 
     return (
-        <div style={{ maxWidth: '80%' }} className="mx-auto sm:mt-8 p-4 bg-yellow-50 rounded">
-            <div className="flex items-center mb-4">
+        <div style={{ maxWidth: '80%' }} className="mx-auto p-4 bg-opacity-85 bg-yellow-50 rounded">
+            <h2 className='mt-3 mb-6 text-4xl text-teal-600 font-bold text-center uppercase'>
+                <strong>Список справ на сьогодні: </strong> 
+                <em className='text-cyan-400'> 1. Не сьогодні!</em>
+            </h2>
+            <div className="flex items-center mt-10 mb-4">
                 <input
                     id="addTodoInput"
-                    className="flex-grow p-2 border-b-2 border-gray-300 text-3xl italic focus:outline-none focus:border-blue-500"
+                    className="h-24 flex-grow p-2 border-b-2 border-gray-300 text-3xl italic focus:outline-none focus:border-blue-500"
                     type="text"
                     placeholder="Add Todo"
                     value={newTodoText}
@@ -81,7 +86,7 @@ const Todo = ({ userId }) => {
                     className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
                     onClick={handleAddTodoClick}
                 >
-                    <BsPlus size={20} />
+                    <BsPlus size={50} />
                 </button>
             </div>
 
@@ -89,14 +94,14 @@ const Todo = ({ userId }) => {
                 <FilterButtons />
                 <div className="flex items-center mb-4">
                     <input
-                        className="flex-grow p-2 border-b-2 border-gray-300 text-xl focus:outline-none focus:border-blue-500"
+                        className="flex-grow p-2 border-b-2 border-gray-300 text-2xl focus:outline-none focus:border-blue-500"
                         type="text"
                         placeholder="Search Todos"
                         value={searchTerm}
                         onChange={(e) => handleSearchChange(e.target.value)}
                     />
                     <button className="ml-4 p-2 bg-lime-400 text-white rounded hover:bg-lime-300 focus:outline-none">
-                        <BsSearch size={20} />
+                        <BsSearch size={35} />
                     </button>
                 </div>
             </div>
