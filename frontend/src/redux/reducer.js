@@ -22,7 +22,7 @@ const initialState = {
     filter: 'ALL', 
     searchTerm: '',
     currentUser: {},
-    activeUserId: '',
+    activeUserId: null,
     isLoggedIn: false, 
     users: [],
     error: null,
@@ -127,7 +127,7 @@ const todoReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isLoggedIn: true,
-                    activeUserId: action.payload.id,
+                    activeUserId: Number(action.payload.id),
                     currentUser: action.payload,
         };
         case LOGOUT_USER:

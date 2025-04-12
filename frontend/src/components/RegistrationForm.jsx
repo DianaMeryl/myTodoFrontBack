@@ -73,7 +73,7 @@ const addData = (e) => {
     }
     else {
         registerUser(name, email, password);
-        history("/todo");
+        history("/login");
     }
 };
 

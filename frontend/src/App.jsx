@@ -13,7 +13,7 @@ const LazyRegistration = React.lazy(() => import('./components/RegistrationForm'
 function App() {
 
   const currentUserId = useSelector(state => state.activeUserId) || {};
-
+  console.log("typeof currentUserId - ", typeof currentUserId);
   return (
     
     <BrowserRouter>
@@ -26,23 +26,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   )
 }

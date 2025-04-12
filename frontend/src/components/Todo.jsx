@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import TodoList from './TodoList';
 import FilterButtons from './FilterButtons';
-import { BsSearch, BsPlus } from 'react-icons/bs';
+import { BsSearch, BsPlus, BsArrowLeftSquare } from 'react-icons/bs';
 import { addTodoSuccess, updateSearchTerm, addTodoFailure, fetchTodos } from '../redux/actions';
 import axios from 'axios';
 import PaginationComponent from './PaginationComponent';
+import { useNavigate } from 'react-router-dom';
 
-
-//01 06 2024
 
 const Todo = ({ userId }) => {
     const dispatch = useDispatch();
     const [newTodoText, setNewTodoText] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getTodosById = async () => {
@@ -38,7 +38,7 @@ const Todo = ({ userId }) => {
                 userId: userId,
                 todoText: todoText,
             });
-            return response.data;  // Повертаємо додану нотатку
+            return response.data;
         } catch (error) {
             dispatch(addTodoFailure(error.message));
             throw error;
@@ -59,6 +59,11 @@ const Todo = ({ userId }) => {
         if (event.key === 'Enter') {
             await handleAddTodoClick();
         }
+    };
+
+    const handleBackToTodos = () => {
+        setSearchTerm('');
+        dispatch(updateSearchTerm(''));
     };
 
     const handleSearchChange = (value) => {
@@ -100,8 +105,8 @@ const Todo = ({ userId }) => {
                         value={searchTerm}
                         onChange={(e) => handleSearchChange(e.target.value)}
                     />
-                    <button className="ml-4 p-2 bg-lime-400 text-white rounded hover:bg-lime-300 focus:outline-none">
-                        <BsSearch size={35} />
+                    <button className="ml-4 p-2 bg-lime-800 text-white rounded hover:bg-lime-300 focus:outline-none"  onClick={handleBackToTodos}>
+                        <BsArrowLeftSquare size={35} />
                     </button>
                 </div>
             </div>

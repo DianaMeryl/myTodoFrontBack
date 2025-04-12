@@ -1,4 +1,4 @@
-// const sequelizeAss = require('./database/associations'); 
+//const sequelizeAss = require('./database/associations'); 
 const sequelize = require('./database/database'); 
 const express = require('express');
 const cors = require('cors');
